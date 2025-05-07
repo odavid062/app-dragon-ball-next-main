@@ -1,7 +1,7 @@
 'use client'
 
-import { Characters } from "@/model/characters"
-import { fetchCharactersList } from "@/service/CharactersService"
+import { Characters } from "../character/character"
+import { fetchCharacterList } from "@/service/characterService"
 import { useEffect, useState } from "react"
 import { DataTable } from 'primereact/datatable';
 import { Column } from 'primereact/column';
@@ -13,7 +13,7 @@ export default function CharactersTable() {
 
   useEffect(() => {
     const getCharacters = async () => {
-      const result = await fetchCharactersList();
+      const result = await fetchCharacterList();
       setCharacters(result);
     };
     getCharacters();
