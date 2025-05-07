@@ -1,54 +1,101 @@
-# React + TypeScript + Vite
+# 🐉 App Dragon Ball Next
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Aplicação web feita com **React + TypeScript + Vite** que consome a **Dragon Ball API** para exibir personagens e planetas do universo. A interface foi construída com **PrimeReact** e o projeto está preparado para produção com **Docker + NGINX**.
 
-Currently, two official plugins are available:
+---
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## 🚀 Tecnologias Utilizadas
 
-## Expanding the ESLint configuration
+- [React](https://reactjs.org/)
+- [TypeScript](https://www.typescriptlang.org/)
+- [Vite](https://vitejs.dev/)
+- [PrimeReact](https://primereact.org/)
+- [PrimeIcons](https://primefaces.org/primeicons/)
+- [Axios](https://axios-http.com/)
+- [Docker](https://www.docker.com/)
+- [NGINX](https://www.nginx.com/)
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+---
 
-```js
-export default tseslint.config({
-  extends: [
-    // Remove ...tseslint.configs.recommended and replace with this
-    ...tseslint.configs.recommendedTypeChecked,
-    // Alternatively, use this for stricter rules
-    ...tseslint.configs.strictTypeChecked,
-    // Optionally, add this for stylistic rules
-    ...tseslint.configs.stylisticTypeChecked,
-  ],
-  languageOptions: {
-    // other options...
-    parserOptions: {
-      project: ['./tsconfig.node.json', './tsconfig.app.json'],
-      tsconfigRootDir: import.meta.dirname,
-    },
-  },
-})
+## 📷 Demonstração
+
+```bash
+Acesse: http://localhost:5173 (após rodar com Docker)
 ```
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+---
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+## ⚙️ Instalação Local
 
-export default tseslint.config({
-  plugins: {
-    // Add the react-x and react-dom plugins
-    'react-x': reactX,
-    'react-dom': reactDom,
-  },
-  rules: {
-    // other rules...
-    // Enable its recommended typescript rules
-    ...reactX.configs['recommended-typescript'].rules,
-    ...reactDom.configs.recommended.rules,
-  },
-})
+```bash
+# Clone o repositório
+git clone https://github.com/odavid062/app-dragon-ball-next-main.git
+
+# Acesse a pasta
+cd app-dragon-ball-next-main
+
+# Instale as dependências
+npm install
+
+# Rode o projeto
+npm run dev
 ```
+
+---
+
+## 🐳 Docker
+
+### ✅ Build da imagem
+```bash
+docker build -t dragon-ball-app .
+```
+
+### ✅ Execução da imagem
+```bash
+docker run -d -p 5173:80 dragon-ball-app
+```
+
+### 🌐 Acesse:
+```
+http://localhost:5173
+```
+
+---
+
+## 📁 Estrutura de Pastas
+
+```
+src/
+├── assets/              # Imagens e recursos estáticos
+├── character/           # Modelos e tipos dos personagens
+├── planets/             # Componentes relacionados a planetas
+├── components/          # Tabela de personagens, tabelas reutilizáveis
+├── service/             # Serviços de requisição com Axios
+├── App.tsx              # Componente principal
+├── main.tsx             # Ponto de entrada da aplicação
+```
+
+---
+
+## 🧱 Dockerfile multi-stage
+
+A imagem foi construída com duas etapas:
+
+1. **Build (Node 18 Alpine)**: Compila o projeto com `vite build`
+2. **Produção (NGINX)**: Serve a aplicação estática via `/usr/share/nginx/html`
+
+---
+
+## 📄 Licença
+
+Este projeto está licenciado sob a **MIT License** – veja o arquivo [LICENSE](LICENSE) para mais detalhes.
+
+---
+
+## 🤝 Contribuindo
+
+Contribuições são bem-vindas! Sinta-se à vontade para abrir issues e pull requests.
+
+---
+
+Feito  por [odavid062](https://github.com/odavid062)
