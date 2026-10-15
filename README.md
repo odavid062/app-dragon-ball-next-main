@@ -20,12 +20,19 @@ Aplicação web feita com **React + TypeScript + Vite** que consome a **Dragon B
 ## 📷 Demonstração
 
 ```bash
-Acesse: http://localhost:5173 (após rodar com Docker)
+Acesse: http://localhost:5173 (localmente via Vite ou após rodar o contêiner Docker)
 ```
 
 ---
 
 ## ⚙️ Instalação Local
+
+### Pré-requisitos
+
+- [Node.js](https://nodejs.org/) (versão 18 ou superior)
+- npm
+
+### Passos
 
 ```bash
 # Clone o repositório
@@ -37,9 +44,16 @@ cd app-dragon-ball-next-main
 # Instale as dependências
 npm install
 
-# Rode o projeto
+# Inicie o servidor de desenvolvimento
 npm run dev
 ```
+
+### 📜 Scripts Disponíveis
+
+- `npm run dev`: Inicia o servidor de desenvolvimento local com Vite.
+- `npm run build`: Executa a verificação de tipos com TypeScript (`tsc -b`) e compila para produção (`vite build`).
+- `npm run lint`: Executa a análise estática de código com ESLint.
+- `npm run preview`: Inicia o servidor local para pré-visualização da build de produção.
 
 ---
 
@@ -66,13 +80,14 @@ http://localhost:5173
 
 ```
 src/
-├── assets/              # Imagens e recursos estáticos
-├── character/           # Modelos e tipos dos personagens
-├── planets/             # Componentes relacionados a planetas
-├── components/          # Tabela de personagens, tabelas reutilizáveis
-├── service/             # Serviços de requisição com Axios
-├── App.tsx              # Componente principal
-├── main.tsx             # Ponto de entrada da aplicação
+├── assets/              # Recursos estáticos (ex.: SVG do React)
+├── character/           # Modelos e interfaces TypeScript dos personagens
+├── components/          # Diretório para componentes compartilhados
+├── planets/             # Componentes e tipos de planetas (PlanetsTable.tsx, planets.ts)
+├── service/             # Serviços de requisição com Axios (personagens e planetas)
+├── App.tsx              # Componente principal com tabela de personagens
+├── index.css            # Estilos globais e utilitários de layout
+├── main.tsx             # Ponto de entrada da aplicação e estilos do PrimeReact
 ```
 
 ---
@@ -81,14 +96,14 @@ src/
 
 A imagem foi construída com duas etapas:
 
-1. **Build (Node 18 Alpine)**: Compila o projeto com `vite build`
+1. **Build (Node 18 Alpine)**: Compila o projeto com `npm run build` (`tsc -b && vite build`)
 2. **Produção (NGINX)**: Serve a aplicação estática via `/usr/share/nginx/html`
 
 ---
 
 ## 📄 Licença
 
-Este projeto está licenciado sob a **MIT License** – veja o arquivo [LICENSE](LICENSE) para mais detalhes.
+Este projeto está licenciado sob a **MIT License**.
 
 ---
 
